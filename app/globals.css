@@ -57,6 +57,9 @@
     body {
       @apply bg-background text-foreground;
     }
+    .active{
+      @apply text-primary;
+    }
   }
   .lol{
     color:#d70427

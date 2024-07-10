@@ -1,5 +1,5 @@
 'use client'
-
+import {LogOut} from 'lucide-react'
 import { Button } from './ui/button'
 import { useRouter } from 'next/navigation'
 const LogoutBtn = () => {
@@ -14,9 +14,9 @@ const LogoutBtn = () => {
       variant='destructive'
       size={'sm'}
       onClick={handleLogout}
-      className='italic'
+      className='flex gap-2 italic'
     >
-      Logout
+     <LogOut /> Logout
     </Button>
   )
 }

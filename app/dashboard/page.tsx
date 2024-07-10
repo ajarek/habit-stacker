@@ -7,7 +7,7 @@ const Dashboard = async () => {
     redirect('/register')
   }
   return (
-    <div>Dashboard</div>
+    <div className=''>Dashboard</div>
   )
 }
 
