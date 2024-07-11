@@ -11,10 +11,10 @@ const LogoutBtn = () => {
   }
   return (
     <Button
-      variant='destructive'
+      
       size={'sm'}
       onClick={handleLogout}
-      className='flex gap-2 italic'
+      className='flex gap-2 italic bg-primary'
     >
      <LogOut /> Logout
     </Button>
