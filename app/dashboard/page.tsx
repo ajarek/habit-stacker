@@ -8,10 +8,10 @@ import {
   Plus,
   CircleArrowLeft,
   CircleArrowRight,
-  Banana,
-  EllipsisVertical,
 } from 'lucide-react'
 import DateInput from '@/components/DateForm'
+import Link from 'next/link'
+import ListHabits from '@/components/ListHabits'
 
 const Dashboard = async () => {
   const session = await auth()
@@ -52,54 +52,16 @@ const Dashboard = async () => {
         </div>
 
         <div className="flex flex-col justify-start items-center border-[12px] border-gray-500 py-2   px-4 gap-4">
-          <div className="w-full flex items-center justify-between">
-            <div className="flex  flex-col items-start  gap-2">
-              <h2 className="text-xl  capitalize ">Poniedziałek</h2>
-              <p>11 lipca</p>
-              <div className="flex gap-2">
-                <Button size="icon">
-                  <CircleArrowLeft />
-                </Button>
-                <Button size="icon">
-                  <CircleArrowRight />
-                </Button>
-              </div>
-            </div>
+          <div className="w-full flex items-center justify-end">
+           
             <div className="flex gap-2">
-              <Button className="flex gap-2">
+              <Link href='dashboard/newHabit' className="flex gap-2 bg-primary px-4 py-2  hover:bg-[#f52649] rounded-lg">
                 <Plus />
                 Nowy nawyk
-              </Button>
+              </Link>
             </div>
           </div>
-          <div className="flex gap-4 w-full justify-start items-center">
-            <div>
-              <Input type="radio" />
-            </div>
-            <div className="relative w-full flex flex-col items-start gap-2 bg-gray-700 p-2 rounded-lg">
-              <Banana />
-              <p>Zdrowie</p>
-              <div className="absolute right-4 top-[50%] translate-y-[-50%]">
-                <Button className="bg-transparent">
-                  <EllipsisVertical />
-                </Button>
-              </div>
-            </div>
-          </div>
-          <div className="flex gap-4 w-full justify-start items-center">
-            <div>
-              <Input type="radio" />
-            </div>
-            <div className="relative w-full flex flex-col items-start gap-2 bg-gray-700 p-2 rounded-lg">
-              <Banana />
-              <p>Zdrowie</p>
-              <div className="absolute right-4 top-[50%] translate-y-[-50%]">
-                <Button className="bg-transparent">
-                  <EllipsisVertical />
-                </Button>
-              </div>
-            </div>
-          </div>
+          <ListHabits/>
         </div>
         <div className=" w-full flex  flex-col items-start justify-between  gap-4 border-[12px] border-gray-500 py-2   px-4">
           <h2 className="text-xl   ">Zrealizowane nawyki </h2>
