@@ -1,6 +1,6 @@
 'use client'
 
-import { newHabitStore } from '@/store/habitStore'
+import { newHabitStore, newDateStore } from '@/store/habitStore'
 import { Input } from '@/components/ui/input'
 import { Button } from '@/components/ui/button'
 import {
@@ -12,14 +12,17 @@ import {
   BookOpenText,
   EllipsisVertical,
 } from 'lucide-react'
-
+const today = new Date()
+const arrayDays=[ 'Niedziela','Poniedziałek', 'Wtorek', 'Środa', 'Czwartek', 'Piątek', 'Sobota']
 const ListHabits = () => {
     const {habits} = newHabitStore()
+    const {dateHabit} = newDateStore()
+
   return (
     <div className="w-full flex flex-col gap-4">
          <div className="flex  flex-col items-start  gap-2">
-              <h2 className="text-xl  capitalize ">Poniedziałek</h2>
-              <p>2024-07-12</p>
+              <h2 className="text-xl  capitalize ">{arrayDays[(dateHabit.dateHabit?.getDay() ?? today.getDay())]  }</h2>
+              <p>{dateHabit.dateHabit?.toLocaleDateString() || today.toLocaleDateString()}</p>
               <div className="flex gap-2">
                 <Button size="icon">
                   <CircleArrowLeft />

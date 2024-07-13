@@ -46,7 +46,7 @@ type habitDateState = {
 export const newDateStore = create<habitDateState>(
   (set) => ({
     
-    dateHabit: { dateHabit: null },
+    dateHabit:  { dateHabit: null } ,
 
     
     addDate: (newDate: habitDate) => set(() => ({ dateHabit: newDate })),
