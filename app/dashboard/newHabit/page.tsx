@@ -4,6 +4,7 @@ import { Input } from '@/components/ui/input'
 import { Button } from '@/components/ui/button'
 import { useRouter } from 'next/navigation'
 import { Label } from '@/components/ui/label'
+import { formatDate } from '@/utils/dataFormat'
 import {
   Select,
   SelectContent,
@@ -26,7 +27,8 @@ const AddHabitForm = () => {
           const name = formData.get('name') as string
           const area = formData.get('area') as string
           const repeat = formData.get('repeat') as string
-          const date= (formData.get('date')) as unknown as Date
+          const originalDate= (formData.get('date')) as unknown as Date
+          const date = formatDate(originalDate) as unknown as Date
           const completed= false
           addHabit({ id, name, area, repeat, date, completed })
           router.push('/dashboard')
@@ -65,6 +67,7 @@ const AddHabitForm = () => {
         <Input
           type="date"
           name="date"
+          defaultValue={new Date().toLocaleDateString()}
         />
         <Button type="submit">Dodaj Nowy Nawyk</Button>
       </form>
