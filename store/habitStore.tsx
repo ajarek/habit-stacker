@@ -40,6 +40,8 @@ export type habitDate = {
 type habitDateState = {
   dateHabit: habitDate;
   addDate: (date: habitDate) => void;
+  addOneDay: (date: Date) => void;
+  subtractOneDay: (date: Date) => void;
 }
 
 
@@ -48,7 +50,18 @@ export const newDateStore = create<habitDateState>(
     
     dateHabit:  { dateHabit: null } ,
 
-    
     addDate: (newDate: habitDate) => set(() => ({ dateHabit: newDate })),
+
+    addOneDay: (date: Date) => {
+      const newDate = new Date(date)
+      newDate.setDate(newDate.getDate() + 1)
+      set(() => ({ dateHabit: { dateHabit: newDate } }))
+    },
+
+    subtractOneDay: (date: Date) => {
+      const newDate = new Date(date)
+      newDate.setDate(newDate.getDate() - 1)
+      set(() => ({ dateHabit: { dateHabit: newDate } }))
+    },
   })
 );

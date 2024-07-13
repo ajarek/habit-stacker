@@ -16,7 +16,9 @@ const today = new Date()
 const arrayDays=[ 'Niedziela','Poniedziałek', 'Wtorek', 'Środa', 'Czwartek', 'Piątek', 'Sobota']
 const ListHabits = () => {
     const {habits} = newHabitStore()
-    const {dateHabit} = newDateStore()
+
+
+    const {dateHabit, addOneDay, subtractOneDay} = newDateStore()
 
   return (
     <div className="w-full flex flex-col gap-4">
@@ -24,10 +26,11 @@ const ListHabits = () => {
               <h2 className="text-xl  capitalize ">{arrayDays[(dateHabit.dateHabit?.getDay() ?? today.getDay())]  }</h2>
               <p>{dateHabit.dateHabit?.toLocaleDateString() || today.toLocaleDateString()}</p>
               <div className="flex gap-2">
-                <Button size="icon">
+                <Button size="icon" onClick={() => subtractOneDay(dateHabit.dateHabit|| today)}>
                   <CircleArrowLeft />
                 </Button>
-                <Button size="icon">
+               
+                <Button size="icon" onClick={() => addOneDay(dateHabit.dateHabit|| today)}>
                   <CircleArrowRight />
                 </Button>
               </div>
