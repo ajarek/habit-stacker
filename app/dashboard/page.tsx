@@ -9,7 +9,7 @@ import {
   CircleArrowLeft,
   CircleArrowRight,
 } from 'lucide-react'
-import DateInput from '@/components/DateForm'
+import DateInput from '@/components/DateInput'
 import Link from 'next/link'
 import ListHabits from '@/components/ListHabits'
 
