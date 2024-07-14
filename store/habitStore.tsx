@@ -51,6 +51,8 @@ export const newDateStore = create<habitDateState>(
     dateHabit:  { dateHabit: null } ,
 
     addDate: (newDate: habitDate) => set(() => ({ dateHabit: newDate })),
+    
+  
 
     addOneDay: (date: Date) => {
       const newDate = new Date(date)
