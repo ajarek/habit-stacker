@@ -14,6 +14,7 @@ type HabitState = {
   habits: Habit[]
   addHabit: (habit: Habit) => void
   removeHabit: (id: number) => void
+  changeHabitCompleted: (id: number, completed: boolean) => void
 }
 
 export const newHabitStore = create<HabitState>()(
@@ -26,7 +27,16 @@ export const newHabitStore = create<HabitState>()(
         set((state) => ({
           habits: state.habits.filter((habit) => habit.id != id),
         })),
+
+
+        changeHabitCompleted: (id) =>   
+        set((state) => ({    
+          habits: state.habits.map((habit) =>
+            habit.id === id ? { ...habit, completed: !habit.completed } : habit
+          ),        
+        })),
     }),
+    
     { name: 'habitStore', storage: createJSONStorage(() => localStorage) }
   )
 )

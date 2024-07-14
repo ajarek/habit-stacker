@@ -27,12 +27,13 @@ const arrayDays = [
   'Piątek',
   'Sobota',
 ]
-const ListHabits = () => {
-  const { habits, removeHabit } = newHabitStore()
+const ListHabits = ({ checked }: { checked: boolean }) => {
+  const { habits, removeHabit, changeHabitCompleted } = newHabitStore()
   const { dateHabit, addOneDay, subtractOneDay } = newDateStore()
 
   return (
     <div className="w-full flex flex-col gap-4">
+      {!checked &&
       <div className="flex  flex-col items-start  gap-2">
         <h2 className="text-xl  capitalize ">
           {arrayDays[dateHabit.dateHabit?.getDay() ?? today.getDay()]}
@@ -57,13 +58,14 @@ const ListHabits = () => {
           </Button>
         </div>
       </div>
+          }
       {habits.length > 0 &&
         habits
+           .filter((habit) => habit.completed === checked )
           .filter(
             (habit) =>
-              (habit.completed === false && habit.repeat === 'every') ||
-              habit.date.toString() ===
-                dateHabit.dateHabit?.toLocaleDateString()
+             ( habit.repeat === 'every') ||
+              habit.date.toString() === dateHabit.dateHabit?.toLocaleDateString()
           )
           .map((habit) => (
             <div
@@ -73,10 +75,10 @@ const ListHabits = () => {
               <div>
                 <Button
                   size="icon"
-                  className="bg-transparent hover:bg-transparent"
-                  onClick={() => console.log('checked')}
+                  className="w-6 h-6 p-0 bg-transparent hover:bg-blue-500 rounded-full"
+                  onClick={() => changeHabitCompleted(habit.id, true)}
                 >
-                  {habit.completed ? <CircleCheckBig /> : <Circle />}
+                   {checked? <CircleCheckBig /> : <Circle />}
                 </Button>
               </div>
               <div className="relative w-full flex flex-col items-start gap-2 bg-gray-700 p-2 rounded-lg">
@@ -91,6 +93,7 @@ const ListHabits = () => {
                   <Button
                     size="icon"
                     onClick={() => removeHabit(habit.id)}
+                    className="w-8 h-8 p-0 bg-transparent hover:bg-primary "
                   >
                     <Trash2 />
                   </Button>

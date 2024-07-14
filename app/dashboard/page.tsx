@@ -61,10 +61,13 @@ const Dashboard = async () => {
               </Link>
             </div>
           </div>
-          <ListHabits/>
+          <ListHabits checked={false} />
+          
         </div>
         <div className=" w-full flex  flex-col items-start justify-between  gap-4 border-[12px] border-gray-500 py-2   px-4">
           <h2 className="text-xl   ">Zrealizowane nawyki </h2>
+          <ListHabits checked={true} />
+        
           <div className="w-full text-gray-400">
             <p className="text-center ">Nakładanie nawyków jest jak supermoc</p>
             <p className="text-center">Nie pozwól by się zmarnowała</p>
