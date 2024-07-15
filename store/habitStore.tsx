@@ -41,6 +41,33 @@ export const newHabitStore = create<HabitState>()(
   )
 )
 
+export type Area = {
+  id: number
+  name: string
+}
+
+export type AreaState = {
+  areas: Area[]
+  addArea: (area: Area) => void
+  removeArea: (id: number) => void
+}
+
+export const newAreaStore = create<AreaState>()(
+  persist(
+    (set) => ({
+      areas: [],
+      addArea: (area: Area) =>
+        set((state) => ({ areas: [area, ...state.areas] })),
+      removeArea: (id) =>
+        set((state) => ({
+          areas: state.areas.filter((area) => area.id != id),
+        })),
+    }),
+    
+    { name: 'areaStore', storage: createJSONStorage(() => localStorage) }
+  )
+)
+
 
 export type habitDate = {
   dateHabit: Date | null;

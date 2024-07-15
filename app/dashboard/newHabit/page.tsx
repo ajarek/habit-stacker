@@ -5,6 +5,7 @@ import { Button } from '@/components/ui/button'
 import { useRouter } from 'next/navigation'
 import { Label } from '@/components/ui/label'
 import { formatDate } from '@/utils/dataFormat'
+import { newAreaStore } from '@/store/habitStore'
 import {
   Select,
   SelectContent,
@@ -15,6 +16,7 @@ import {
 
 const AddHabitForm = () => {
   const { addHabit } = newHabitStore()
+  const { addArea, areas } = newAreaStore()
   const router = useRouter()
   return (
     <div className="flex flex-col justify-center items-center h-screen gap-4">
@@ -47,9 +49,13 @@ const AddHabitForm = () => {
             <SelectValue placeholder="Wybierz swój obszar" />
           </SelectTrigger>
           <SelectContent>
-            <SelectItem value="zdrowie">Zdrowie</SelectItem>
-            <SelectItem value="produktywność">Produktywność</SelectItem>
-            <SelectItem value="rozwój osobisty">Rozwój osobisty</SelectItem>
+            {areas.map((area) => (
+              <SelectItem key={area.id} value={area.name}>
+                {area.name}
+              </SelectItem>
+            ))}
+           
+           
           </SelectContent>
         </Select>
         <Label htmlFor="repeat">Powtarzać</Label>
