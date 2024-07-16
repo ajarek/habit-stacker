@@ -29,9 +29,9 @@ const AddHabitForm = () => {
           const name = formData.get('name') as string
           const area = formData.get('area') as string
           const repeat = formData.get('repeat') as string
-          const originalDate= (formData.get('date')) as unknown as Date
+          const originalDate = formData.get('date') as unknown as Date
           const date = formatDate(originalDate) as unknown as Date
-          const completed= false
+          const completed = false
           addHabit({ id, name, area, repeat, date, completed })
           router.push('/dashboard')
         }}
@@ -49,13 +49,18 @@ const AddHabitForm = () => {
             <SelectValue placeholder="Wybierz swój obszar" />
           </SelectTrigger>
           <SelectContent>
-            {areas.map((area) => (
-              <SelectItem key={area.id} value={area.name}>
-                {area.name}
-              </SelectItem>
-            ))}
-           
-           
+            {areas.length > 0 ? (
+              areas.map((area) => (
+                <SelectItem
+                  key={area.id}
+                  value={area.name}
+                >
+                  {area.name}
+                </SelectItem>
+              ))
+            ) : (
+              <SelectItem value="none">Brak danych. Dodaj obszary.</SelectItem>
+            )}
           </SelectContent>
         </Select>
         <Label htmlFor="repeat">Powtarzać</Label>
