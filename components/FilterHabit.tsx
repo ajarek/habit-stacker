@@ -12,7 +12,7 @@ import {
 const FilterHabit = () => {
     const { areas } = newAreaStore()
   return (
-    <div className="flex gap-2">
+    <div className="flex flex-wrap gap-2">
     <Button variant={'outline'} className="flex gap-2">
       <Globe />
       Wszystko

@@ -11,7 +11,7 @@ const AddHabitForm = () => {
   const { addArea, areas } = newAreaStore()
   const router = useRouter()
   return (
-    <div className="flex flex-col justify-center items-center h-screen gap-4">
+    <div className="flex flex-col justify-center items-center h-screen gap-4 p-4">
       <h1 className="text-2xl font-bold">Dodaj nowy obszar</h1>
       <form
         onSubmit={(e) => {

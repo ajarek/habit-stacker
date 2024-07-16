@@ -26,7 +26,7 @@ const Sidebar = ({ session }: any) => {
         />
       )}
       <div
-        className={`fixed top-0 left-0 z-1 w-64  min-h-screen  px-5 py-10 duration-500  ${
+        className={`fixed top-0 left-0 z-1 w-64  min-h-screen  px-5 py-10 duration-500 z-30  ${
           mobile ? 'translate-x-0 ' : '-translate-x-64 '
         } lg:translate-x-0 bg-background border-r border-gray-300 `}
       >

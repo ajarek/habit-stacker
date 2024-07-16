@@ -21,7 +21,7 @@ const Dashboard = async () => {
   }
   return (
 
-    <div className="w-full grid grid-cols-[2fr_1fr]">
+    <div className="w-full grid grid-cols-[2fr_1fr] max-lg:grid-cols-1 gap-4">
       <div className="">
         <div className="flex justify-between items-center border-[12px] border-gray-500 py-2   px-4">
           <div className="">
@@ -36,7 +36,7 @@ const Dashboard = async () => {
             />
           </div>
         </div>
-        <div className="flex justify-start items-center border-[12px] border-gray-500 py-2   px-4">
+        <div className="flex  justify-start items-center border-[12px] border-gray-500 py-2   px-4">
          <FilterHabit/>
         </div>
 
@@ -63,7 +63,7 @@ const Dashboard = async () => {
           </div>
         </div>
       </div>
-      <div className='flex justify-center items-center border-[12px] border-gray-500 py-2 border-l-[0px]  px-4'>
+      <div className='flex justify-center items-center border-[12px] border-gray-500 py-2 border-l-[0px] px-4 max-lg:hidden'>
         <DateInput/>
       </div>
     </div>
