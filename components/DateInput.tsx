@@ -2,7 +2,7 @@
 import React, { FC } from 'react'
 import DatePicker, { registerLocale, setDefaultLocale } from 'react-datepicker'
 import 'react-datepicker/dist/react-datepicker.css'
-import { pl } from 'date-fns/locale/pl';
+import { pl } from 'date-fns/locale/pl'
 registerLocale('pl', pl)
 setDefaultLocale('pl')
 import { newDateStore } from '@/store/habitStore'

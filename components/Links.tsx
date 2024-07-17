@@ -2,10 +2,8 @@
 
 import Image from 'next/image'
 import Link from 'next/link'
-import { usePathname } from 'next/navigation'
 
 const Links = () => {
-  const pathname = usePathname()
   return (
     <div className="max-lg:hidden w-full flex items-center justify-between  ">
       <Link

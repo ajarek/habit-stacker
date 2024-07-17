@@ -5,10 +5,16 @@ import ChartPie from '@/components/ChartPie'
 const Statistics = () => {
   const { habits } = newHabitStore()
   const { areas } = newAreaStore()
-  
+
   const data = [
-    { name: 'Do Realizacji', value: habits.filter((habit) => !habit.completed).length },
-    { name: 'Zrealizowane', value: habits.filter((habit) => habit.completed).length },
+    {
+      name: 'Do Realizacji',
+      value: habits.filter((habit) => !habit.completed).length,
+    },
+    {
+      name: 'Zrealizowane',
+      value: habits.filter((habit) => habit.completed).length,
+    },
   ]
   return (
     <div className="min-h-screen w-full flex flex-col justify-between items-center border-[12px] border-gray-500 py-2   px-4">

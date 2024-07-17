@@ -3,7 +3,7 @@
 import { useCallback, useState, useEffect } from 'react'
 import { PieChart, Pie, Sector, Cell } from 'recharts'
 
-const COLORS = [ 'red','green']
+const COLORS = ['red', 'green']
 
 const renderActiveShape = (props: any) => {
   const RADIAN = Math.PI / 180
@@ -37,7 +37,7 @@ const renderActiveShape = (props: any) => {
         x={cx}
         y={cy}
         dy={8}
-        textAnchor='middle'
+        textAnchor="middle"
         fill={fill}
       >
         {payload.name}
@@ -63,27 +63,27 @@ const renderActiveShape = (props: any) => {
       <path
         d={`M${sx},${sy}L${mx},${my}L${ex},${ey}`}
         stroke={fill}
-        fill='none'
+        fill="none"
       />
       <circle
         cx={ex}
         cy={ey}
         r={2}
         fill={fill}
-        stroke='none'
+        stroke="none"
       />
       <text
         x={ex + (cos >= 0 ? 1 : -1) * 12}
         y={ey}
         textAnchor={textAnchor}
-        fill='#999'
+        fill="#999"
       >{` ${value}`}</text>
       <text
         x={ex + (cos >= 0 ? 1 : -1) * 12}
         y={ey}
         dy={18}
         textAnchor={textAnchor}
-        fill='#999'
+        fill="#999"
       >
         {`( ${(percent * 100).toFixed(2)}%)`}
       </text>
@@ -119,8 +119,8 @@ export default function ChartPie({ data }: any) {
             cy={200}
             innerRadius={60}
             outerRadius={80}
-            fill='violet'
-            dataKey='value'
+            fill="violet"
+            dataKey="value"
             onMouseEnter={onPieEnter}
           >
             {data.map((_: any, index: number) => (

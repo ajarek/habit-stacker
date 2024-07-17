@@ -28,15 +28,14 @@ export const newHabitStore = create<HabitState>()(
           habits: state.habits.filter((habit) => habit.id != id),
         })),
 
-
-        changeHabitCompleted: (id) =>   
-        set((state) => ({    
+      changeHabitCompleted: (id) =>
+        set((state) => ({
           habits: state.habits.map((habit) =>
             habit.id === id ? { ...habit, completed: !habit.completed } : habit
-          ),        
+          ),
         })),
     }),
-    
+
     { name: 'habitStore', storage: createJSONStorage(() => localStorage) }
   )
 )
@@ -63,44 +62,36 @@ export const newAreaStore = create<AreaState>()(
           areas: state.areas.filter((area) => area.id != id),
         })),
     }),
-    
+
     { name: 'areaStore', storage: createJSONStorage(() => localStorage) }
   )
 )
 
-
 export type habitDate = {
-  dateHabit: Date | null;
+  dateHabit: Date | null
 }
-
 
 type habitDateState = {
-  dateHabit: habitDate;
-  addDate: (date: habitDate) => void;
-  addOneDay: (date: Date) => void;
-  subtractOneDay: (date: Date) => void;
+  dateHabit: habitDate
+  addDate: (date: habitDate) => void
+  addOneDay: (date: Date) => void
+  subtractOneDay: (date: Date) => void
 }
 
+export const newDateStore = create<habitDateState>((set) => ({
+  dateHabit: { dateHabit: null },
 
-export const newDateStore = create<habitDateState>(
-  (set) => ({
-    
-    dateHabit:  { dateHabit: null } ,
+  addDate: (newDate: habitDate) => set(() => ({ dateHabit: newDate })),
 
-    addDate: (newDate: habitDate) => set(() => ({ dateHabit: newDate })),
-    
-  
+  addOneDay: (date: Date) => {
+    const newDate = new Date(date)
+    newDate.setDate(newDate.getDate() + 1)
+    set(() => ({ dateHabit: { dateHabit: newDate } }))
+  },
 
-    addOneDay: (date: Date) => {
-      const newDate = new Date(date)
-      newDate.setDate(newDate.getDate() + 1)
-      set(() => ({ dateHabit: { dateHabit: newDate } }))
-    },
-
-    subtractOneDay: (date: Date) => {
-      const newDate = new Date(date)
-      newDate.setDate(newDate.getDate() - 1)
-      set(() => ({ dateHabit: { dateHabit: newDate } }))
-    },
-  })
-);
+  subtractOneDay: (date: Date) => {
+    const newDate = new Date(date)
+    newDate.setDate(newDate.getDate() - 1)
+    set(() => ({ dateHabit: { dateHabit: newDate } }))
+  },
+}))

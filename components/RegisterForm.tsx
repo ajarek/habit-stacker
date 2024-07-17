@@ -89,7 +89,7 @@ const RegisterForm = () => {
           value={`${DEFAULT_IS_ADMIN}`}
         />
         <Button
-          className='bg-primary text-white hover:bg-red-800 '
+          className="bg-primary text-white hover:bg-red-800 "
           type="submit"
         >
           Registration
@@ -98,8 +98,7 @@ const RegisterForm = () => {
           href="/api/auth/signin"
           className="flex gap-2"
         >
-          You already have an account? <b className="text-primary">
-          Login</b>
+          You already have an account? <b className="text-primary">Login</b>
         </Link>
       </form>
     </div>

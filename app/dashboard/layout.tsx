@@ -1,4 +1,3 @@
-
 import { auth } from '@/app/api/auth/auth'
 import Sidebar from '@/components/Sidebar'
 

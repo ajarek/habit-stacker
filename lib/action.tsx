@@ -1,11 +1,10 @@
 'use server'
 
 import connectToDb from './connectToDb'
-import { User, UserWithoutId} from './models'
+import { User, UserWithoutId } from './models'
 import { revalidatePath } from 'next/cache'
 import bcrypt from 'bcryptjs'
 import { redirect } from 'next/navigation'
-
 
 export const addUser = async (formData: UserWithoutId) => {
   const { username, email, password, img, isAdmin } = formData

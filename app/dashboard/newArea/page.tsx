@@ -5,8 +5,6 @@ import { Button } from '@/components/ui/button'
 import { useRouter } from 'next/navigation'
 import { Label } from '@/components/ui/label'
 
-
-
 const AddHabitForm = () => {
   const { addArea, areas } = newAreaStore()
   const router = useRouter()
@@ -19,7 +17,7 @@ const AddHabitForm = () => {
           const formData = new FormData(e.target as HTMLFormElement)
           const id = Date.now()
           const name = formData.get('name') as string
-          
+
           addArea({ id, name })
           router.push('/dashboard/areas')
         }}
@@ -31,8 +29,8 @@ const AddHabitForm = () => {
           name="name"
           placeholder="Wpisz nazwę obszaru"
         />
-        
-        <Button type="submit">Dodaj  Obszar</Button>
+
+        <Button type="submit">Dodaj Obszar</Button>
       </form>
     </div>
   )

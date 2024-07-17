@@ -50,23 +50,28 @@ const Sidebar = ({ session }: any) => {
           <Link
             href="/dashboard"
             className={`flex gap-2 border-b border-gray-300 hover:text-primary ${
-              pathname === '/dashboard' ? 'active ' : ''} `}
+              pathname === '/dashboard' ? 'active ' : ''
+            } `}
           >
-           <List className='text-primary'/> Wszystkie Nawyki
+            <List className="text-primary" /> Wszystkie Nawyki
           </Link>
           <Link
             href="/dashboard/statistics"
             className={`flex gap-2 border-b border-gray-300 hover:text-primary ${
-              pathname === '/dashboard/statistics' ? 'active ' : ''}`}
+              pathname === '/dashboard/statistics' ? 'active ' : ''
+            }`}
           >
-            <BarChart className='text-primary'/>Statystyka
+            <BarChart className="text-primary" />
+            Statystyka
           </Link>
           <Link
             href="/dashboard/areas"
             className={`flex gap-2 border-b border-gray-300 hover:text-primary ${
-              pathname === '/dashboard/areas' ? 'active ' : ''}`}
+              pathname === '/dashboard/areas' ? 'active ' : ''
+            }`}
           >
-            <Layers3 className='text-primary'/>Obszary
+            <Layers3 className="text-primary" />
+            Obszary
           </Link>
 
           <Logout session={session} />
