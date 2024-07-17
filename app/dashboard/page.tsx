@@ -16,7 +16,7 @@ const Dashboard = async ({
     redirect('/register')
   }
   const buttonFilter = searchParams.area || 'all'
-  console.log(buttonFilter)
+ 
   return (
     <div className="w-full grid grid-cols-[2fr_1fr] max-lg:grid-cols-1 gap-4">
       <div className="">
